@@ -1,0 +1,23 @@
+#include <iostream>
+#include <malloc.h>
+
+void printArray(int* arr)
+{
+  size_t size = _msize(arr) / sizeof(int);
+  for (size_t i = 0; i < size; i++)
+  {
+    std::cout << *(arr + i) << ' ';
+  }
+}
+
+
+int main()
+{
+  srand(time(0));
+  const int SIZE = 10;
+  int* arr = new int[SIZE];
+  for (size_t i = 0; i < SIZE; i++)
+    *(arr + i) = rand() % 80 - 10;
+  printArray(arr);
+  return 0;
+}
